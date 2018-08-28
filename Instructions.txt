@@ -1,5 +1,6 @@
 The basic and function full code can be found as main_code.py .
 This is an web based project in Django Framework.
 First install Django and Xampp.
+Open cmd and set the path to Traffic_alert folder
 Load traffic_alert.sql in Database.
 Run the project from cmd as any other Django project.
