@@ -1,0 +1,40 @@
+Oldest :
+ </br></br>
+ 
+
+
+ <div class="result" >	
+
+	{% for search_area in search_area %}
+		{{search_area.extracted_info}} &nbsp &nbsp &nbsp Time : {{search_area.time}}
+	</br>
+	
+	</br>
+	{% endfor %}
+
+</div>
+
+
+
+
+ <div class="result">	
+
+
+
+	{% for data_previous in data_previous %}
+
+		{{data_previous.2}} &nbsp &nbsp &nbsp Time : {{data_previous.5}}
+		
+	</br>
+	</br>
+	{% endfor %}
+
+ </div>
+
+
+
+
+
+
+
+

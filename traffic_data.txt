@@ -1,0 +1,103 @@
+Traffic Jam is near,1
+No traffic jam is occuring,0
+Traffic jam is occuring,1
+in a grid lock situation,1
+free road,0
+ah peace no jam,0
+No traffic jam,0
+Huge grid lock,1
+huge traffic jam,1
+complete free road,0
+road situation,2
+free road,0
+stuck for hours,1
+no movement,1
+complete free road,0
+grid lock,1
+Traffic condition is horrible,1
+Still long way to go,1
+VIPs are heading somewhere else,1
+totally gridlocked,1
+any update on road situation,2
+couldn’t even reach,1
+Stuck here,1
+waiting,1
+No movement,1
+stuck almost same place,1
+What's wrong,1
+traffic at standstill,1
+Avoid,1
+Happy Drive ,0
+Free drive,0
+what is the current situation,2
+any update of uttara to farmgate road,2
+full packed,1
+Every car is gridlocked ,1
+What is status,2
+Traffic condition is horrible,1
+What's the traffic condition,2
+Can anyone give any update,2
+How is traffic condition,2
+What is the road condition,2
+what's wrong with,1
+no jam,0
+jam packed,1
+vip coming,1
+road completely free,0
+Can anyone please update the traffic condition,2
+any update on traffic,2
+miracle to reach home,1
+any update on present condition,2
+traffic situation is out of control,1
+Complete packed in all directions,1
+Any update route please,2
+Can anyone update road condition,2
+How is the traffic there,2
+Don't proceed,1
+Slow movement,1
+no vip movement,0
+Any update about the road condition,2
+Roads full packed,1
+Horrible traffic condition,1
+Unbelievable JAM,1
+wrong decision,1
+jam is no more here,0
+counting,1
+Situation,2
+road is completely free,0
+which route should i take now,2
+same place,1
+Too much traffic,1
+What's the Condition of the Road,2
+jam is cleared,0
+Still long way to go,1
+traffic condition please,2
+can anyone update me regarding the traffic situation,2
+packed,1
+vip coming,1
+prime minister coming,1
+no movement,1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
