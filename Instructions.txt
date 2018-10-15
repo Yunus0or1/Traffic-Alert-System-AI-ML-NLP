@@ -4,3 +4,17 @@ First install Django and Xampp.
 Open cmd and set the path to Traffic_alert folder
 Load traffic_alert.sql in Database.
 Run the project from cmd as any other Django project.
+
+Python 3.6.2 required as this uses mysqlclient
+
+You may need to install many libraries :
+
+pip install mysqlclient
+pip install matplotlib
+pip install sklearn
+pip install mysql-connector
+pip install nltk
+
+And many more may be needed. Run the project you will find errors and the 
+terminal will specify which library is needed.
+Nltk will need all the punkt library. You will see error. Just follow the instructions from the errors.

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2018 at 09:40 PM
+-- Generation Time: Aug 03, 2018 at 08:21 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `traffic_alert`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alert_data`
+--
+
+CREATE TABLE `alert_data` (
+  `id` int(11) NOT NULL,
+  `main_status` varchar(30) NOT NULL,
+  `extracted_info` varchar(255) NOT NULL,
+  `place` varchar(30) NOT NULL,
+  `seen` int(11) NOT NULL,
+  `time` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `alert_data`
+--
+
+INSERT INTO `alert_data` (`id`, `main_status`, `extracted_info`, `place`, `seen`, `time`) VALUES
+(12, 'huge jam in gulshan', 'There may be traffic jam at gulshan', 'gulshan', 1, '2018-07-23 20:13:11.671238'),
+(13, 'stucked in baridhara for two h', 'There may be traffic jam at baridhara', 'baridhara', 1, '2018-07-23 20:13:35.290213'),
+(14, 'full stop in gulshan', 'There may be traffic jam at gulshan', 'gulshan', 1, '2018-07-23 20:14:50.416537'),
+(15, 'what\'s wrong with banani flyov', 'There may be traffic jam at banani', 'banani', 1, '2018-07-28 20:22:31.035471');
 
 -- --------------------------------------------------------
 
@@ -80,7 +105,10 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (15, 'Can delete content type', 5, 'delete_contenttype'),
 (16, 'Can add session', 6, 'add_session'),
 (17, 'Can change session', 6, 'change_session'),
-(18, 'Can delete session', 6, 'delete_session');
+(18, 'Can delete session', 6, 'delete_session'),
+(19, 'Can add data', 7, 'add_data'),
+(20, 'Can change data', 7, 'change_data'),
+(21, 'Can delete data', 7, 'delete_data');
 
 -- --------------------------------------------------------
 
@@ -129,32 +157,6 @@ CREATE TABLE `auth_user_user_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data`
---
-
-CREATE TABLE `data` (
-  `id` int(10) NOT NULL,
-  `main_status` varchar(255) DEFAULT NULL,
-  `extracted_info` varchar(255) DEFAULT NULL,
-  `seen` int(10) DEFAULT '0',
-  `time` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `data`
---
-
-INSERT INTO `data` (`id`, `main_status`, `extracted_info`, `seen`, `time`) VALUES
-(14, 'traffic jam in badda', 'There may be traffic jam at badda', 1, '2018-06-10 08:01:37 PM'),
-(15, 'huge grid lock in dhanmondi', 'There may be traffic jam at dhanmondi', 1, '2018-06-11 12:36:37 AM'),
-(16, 'stuck in dhanmondi for hours', 'There may be traffic jam at dhanmondi', 1, '2018-06-11 01:22:11 AM'),
-(17, 'total grid lock in baridhara.', 'There may be traffic jam at baridhara', 1, '2018-06-11 01:29:13 AM'),
-(18, 'total grid lock in bashundhara', 'There may be traffic jam at bashundhara', 1, '2018-06-11 01:35:06 AM'),
-(19, 'total grid lock in dhanmondi', 'There may be traffic jam at dhanmondi', 1, '2018-06-11 01:35:54 AM');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `django_admin_log`
 --
 
@@ -187,6 +189,7 @@ CREATE TABLE `django_content_type` (
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (1, 'admin', 'logentry'),
+(7, 'alert', 'data'),
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
@@ -224,7 +227,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (11, 'auth', '0007_alter_validators_add_error_messages', '2018-06-10 16:41:06.562453'),
 (12, 'auth', '0008_alter_user_username_max_length', '2018-06-10 16:41:06.661213'),
 (13, 'auth', '0009_alter_user_last_name_max_length', '2018-06-10 16:41:06.715212'),
-(14, 'sessions', '0001_initial', '2018-06-10 16:41:06.765212');
+(14, 'sessions', '0001_initial', '2018-06-10 16:41:06.765212'),
+(15, 'alert', '0001_initial', '2018-07-23 07:04:41.404058');
 
 -- --------------------------------------------------------
 
@@ -241,6 +245,12 @@ CREATE TABLE `django_session` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `alert_data`
+--
+ALTER TABLE `alert_data`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `auth_group`
@@ -288,12 +298,6 @@ ALTER TABLE `auth_user_user_permissions`
   ADD KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`);
 
 --
--- Indexes for table `data`
---
-ALTER TABLE `data`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -326,6 +330,11 @@ ALTER TABLE `django_session`
 --
 
 --
+-- AUTO_INCREMENT for table `alert_data`
+--
+ALTER TABLE `alert_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
 -- AUTO_INCREMENT for table `auth_group`
 --
 ALTER TABLE `auth_group`
@@ -339,7 +348,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
@@ -356,11 +365,6 @@ ALTER TABLE `auth_user_groups`
 ALTER TABLE `auth_user_user_permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `data`
---
-ALTER TABLE `data`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
---
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
@@ -369,12 +373,12 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Constraints for dumped tables
 --

@@ -23,7 +23,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
 import nltk
-from googletrans import Translator
 import datetime
 from datetime import timedelta
 import mysql.connector
@@ -133,14 +132,8 @@ def information(request):
 
 
 
-	#New input line
-	translator = Translator()
-	translated_sentence = translator.translate(status)
-	if translated_sentence.src == 'bn':
-		sentence = str(translated_sentence.text)
-	else :
-		sentence = status
-		sentence = sentence.lower()
+	sentence = status
+	sentence = sentence.lower()
 	words = word_tokenize(sentence)
 
 
