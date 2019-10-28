@@ -10,6 +10,9 @@ huge traffic jam,1
 complete free road,0
 road situation,2
 free road,0
+no jam,0
+no traffic jam,0
+free road,0
 stuck for hours,1
 no movement,1
 complete free road,0
@@ -26,6 +29,8 @@ No movement,1
 stuck almost same place,1
 What's wrong,1
 traffic at standstill,1
+completely free road,0
+no jam,0
 Avoid,1
 Happy Drive ,0
 Free drive,0

@@ -110,6 +110,9 @@ def information(request):
 
 	dataset_x = dataset["message"]
 	dataset_y = dataset["outcome"]
+	
+	print(dataset_x)
+	print(dataset_y)
 
 
 
@@ -117,7 +120,7 @@ def information(request):
 
 	cv = TfidfVectorizer(min_df=1,stop_words='english')
 
-	x_train, x_test, y_train, y_test = model_selection.train_test_split(dataset_x, dataset_y, test_size=0.5, random_state=2)
+	x_train, x_test, y_train, y_test = model_selection.train_test_split(dataset_x, dataset_y, test_size=0.8, random_state=2)
 
 	x_train_cv = cv.fit_transform(x_train)
 

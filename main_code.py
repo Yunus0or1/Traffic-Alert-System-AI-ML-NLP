@@ -9,6 +9,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.naive_bayes import MultinomialNB
@@ -39,29 +42,22 @@ def extract_data(status):
 
     cv = TfidfVectorizer(min_df=1,stop_words='english')
 
-    x_train, x_test, y_train, y_test = model_selection.train_test_split(dataset_x, dataset_y, test_size=0.5, random_state=2)
+    x_train, x_test, y_train, y_test = model_selection.train_test_split(dataset_x, dataset_y, test_size=0.8, random_state=2)
 
     x_train_cv = cv.fit_transform(x_train)
 
     x_test_cv = cv.transform(x_test)
 
 
-    classifier = SVC()
+    classifier = LogisticRegression()
     classifier.fit(x_train_cv, y_train)
 
     predictions = classifier.predict(x_test_cv)
     print(accuracy_score(y_test, predictions))  #Accuracy printing
 
 
-
-    #New input line
-    translator = Translator()
-    translated_sentence = translator.translate(status)
-    if translated_sentence.src == 'bn':
-        sentence = str(translated_sentence.text)
-    else :
-        sentence = status
-        sentence = sentence.lower()
+    sentence = status
+    sentence = sentence.lower()
     words = word_tokenize(sentence)
 
 
@@ -173,23 +169,11 @@ def extract_data(status):
         final_result = 'Someone is trying to know the road condition of ' + jam_place_final_result
 
 
-    #Saving the result in Database for further mining
-    time = str(datetime.datetime.now().strftime('%Y-%m-%d %I:%M:%S %p'))
-    time = datetime.datetime.now()
-
-    try:
-        connection = MySQLdb.connect(host="localhost",user="root",password="",db="traffic_alert")
-    except Exception as e:
-        print('Not connected')
-
-
-    cursor = connection.cursor()
-    cursor.execute("insert into alert_data (main_status,extracted_info,place,time) values (%s,%s,%s,%s)",[sentence,final_result,jam_place_final_result,time])
-    connection.commit()
+    print(final_result)
 
 
 if __name__ == '__main__':
-    extract_data('Huge jam in uttora')
+    extract_data('banani is free from jam')
 
 
 # MultinomialNB()
