@@ -26,6 +26,7 @@ pip install mysql-connector
 pip install nltk
 ```
 
+More about Djano installtion procedure hit this [link](https://github.com/Yunus0or1/Guidelines-How_TO/blob/master/How%20to%20use%20Django%20Framework.md).
 
 And many more may be needed. Run the project you will find errors and the **terminal will specify which library is needed**.
 Nltk will need all the punkt library. You will see error. Just follow the instructions from the errors.
